@@ -38,7 +38,7 @@ butterfly-map/
 
 目前兩邊都用「桌面上的相對路徑」互連，在自己電腦上直接打開就能互通：
 
-- 這裡 → 母網站：`index.html` 裡的 `../site/index-original.html#map`（共 2 處）
+- 這裡 → 母網站：`index.html` 裡的 `https://butterfly-life.github.io/home/`（共 2 處）
 - 母網站 → 這裡：`site/index-original.html` 地圖區塊的 `../butterfly-map/index.html`
 
 兩個專案各自上傳成 GitHub Pages 之後，把上面兩個連結換成正式網址即可。
