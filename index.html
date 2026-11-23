@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>木生昆蟲館 3D 生態園區 · 蝶影浮生</title>
+<meta name="description" content="蝶影浮生子網頁：木生昆蟲館 3D 生態園區地圖。">
+<meta name="theme-color" content="#F6F4EF">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/map.css?v=20261123c">
+</head>
+<body>
+<a class="skip-link" href="#zone-list">跳到展區清單</a>
+
+<!-- 頂部列：LOGO（回母網站地圖區塊）＋標題；右邊快捷按鈕 -->
+<header class="masthead">
+  <a class="brand" href="../site/index-original.html#map" aria-label="回到蝶影浮生">
+    <img src="assets/logo.png" alt="蝶影浮生">
+    <span>木生昆蟲館 3D 生態園區<small>蝶影浮生 · 地圖</small></span>
+  </a>
+  <div class="mast-actions">
+    <button class="soft" id="mastOverview" type="button">重設視角</button>
+    <button class="soft" id="mastList" type="button">展區清單</button>
+  </div>
+</header>
+
+<main id="main">
+  <!-- 滿版 3D 地圖：畫布＋HTML 標記層＋疊在上面的標題、狀態、工具列、導覽卡 -->
+  <section class="deck" id="deck" aria-labelledby="page-title">
+    <div class="world" id="world"><canvas id="pkCv" tabindex="0" aria-label="木生昆蟲館生態園區的 3D 地圖：拖曳旋轉、滾輪縮放，點選標記查看展區"></canvas></div>
+    <div class="markers" id="markers" aria-label="地圖上的展區"></div>
+
+    <section class="hero" id="hero">
+      <div class="context"><span></span> 南投・埔里｜場景示意</div>
+      <h1 id="page-title">木生昆蟲館<br>生態園區</h1>
+      <p>拖曳旋轉、點選標記，認識園區的每一個展區</p>
+      <div class="hero-actions">
+        <button class="primary" id="tourStart" type="button">開始導覽 <span aria-hidden="true">↗</span></button>
+        <button class="soft" id="browse" type="button">展區清單</button>
+      </div>
+    </section>
+
+    <div class="status"><span id="progress">0 / 0 已探索</span></div>
+    <div class="world-status" id="worldStatus" role="status">正在準備 3D 場景…</div>
+
+    <div class="world-tools" id="worldTools" hidden>
+      <button type="button" id="toolOverview">回到全景</button>
+      <button type="button" id="toolTour">導覽</button>
+      <button type="button" id="toolList">展區清單</button>
+    </div>
+
+    <div class="floating tour-card" id="tourCard" hidden></div>
+    <div class="toast" id="toast" role="status" hidden></div>
+  </section>
+
+  <!-- 展區清單：搜尋＋分類篩選＋卡片 -->
+  <section class="catalog" id="zone-list" aria-labelledby="catalog-title">
+    <div class="catalog-head">
+      <div><h2 id="catalog-title">展區清單</h2><p>點選卡片，鏡頭會飛到該展區並打開介紹。</p></div>
+      <label class="search"><span>搜尋展區</span><input id="search" type="search" placeholder="名稱、說明…" autocomplete="off"></label>
+      <label class="search"><span>分類</span><select id="category"><option value="">全部分類</option></select></label>
+    </div>
+    <div class="cards" id="cards"></div>
+  </section>
+  <noscript><p class="noscript">請啟用 JavaScript 載入園區內容。</p></noscript>
+</main>
+
+<footer class="foot">
+  <span>© 蝶影浮生 · 視覺傳達設計系</span>
+  <span>展區內容為暫定佔位，正確資訊以木生昆蟲館為準。</span>
+  <a href="../site/index-original.html#map">← 回到蝶影浮生</a>
+</footer>
+
+<!-- 展區面板：電腦版在右上、手機版是底部抽屜 -->
+<dialog id="panel" aria-labelledby="panelTitle">
+  <header class="panel-head">
+    <div><span id="panelGroup"></span><h2 id="panelTitle"></h2></div>
+    <button class="icon" id="panelClose" type="button" aria-label="關閉面板">×</button>
+  </header>
+  <div class="panel-content" id="panelContent"></div>
+</dialog>
+
+<!-- three.js r128＋OrbitControls -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="js/zones.js?v=20261123b"></script>
+<script src="js/park.js?v=20261123d"></script>
+</body>
+</html>
