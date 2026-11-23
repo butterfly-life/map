@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><!-- 佔位：路線 -->
+<g stroke="#0A2F28" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+<path d="M22 78C22 56 50 64 52 46S78 36 78 22" fill="none" stroke-dasharray="2 9"/>
+<circle cx="22" cy="78" r="8" fill="#FFFCF5"/>
+<circle cx="78" cy="22" r="8" fill="#D9772F"/>
+</g></svg>

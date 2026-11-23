@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><!-- 佔位：摺疊地圖 -->
+<g stroke="#0A2F28" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+<path d="M12 24 36 16 64 26 88 18 88 78 64 86 36 76 12 84Z" fill="#FFFCF5"/>
+<path d="M36 16 36 76M64 26 64 86" fill="none"/>
+<path d="M20 60c8-10 14 4 24-6s16 2 24-8 12-2 14-6" fill="none" stroke="#D9772F" stroke-dasharray="1 7"/>
+</g></svg>

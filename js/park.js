@@ -274,6 +274,8 @@
   requestAnimationFrame(tick);
   status.hidden = true;
   $('worldTools').hidden = false;
+  window.parkReady = true;
+  document.dispatchEvent(new Event('parkready'));   // 開場讀條（js/intro.js）等這個訊號才淡出
   const z0 = ZONES.findIndex(z => '#' + z.id === location.hash);
   if (z0 >= 0) select(z0, 1200);
 })();

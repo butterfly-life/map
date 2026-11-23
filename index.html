@@ -9,9 +9,23 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/map.css?v=20261123c">
+<link rel="stylesheet" href="css/map.css?v=20261123d">
 </head>
 <body>
+<!-- 開場讀條（參考母網站 home 的開場）：藍綠底，中間一跳一跳、抽幀切換的地圖小圖示（摺疊地圖 → 路線 → 定位 → 抵達），下方 loading...
+     圖示是暫時的佔位圖，之後換成自己的素材：直接覆蓋 assets/intro/ 裡的四張圖（同檔名），或改下面 <img> 的 src
+     讀完（最少 3.2 秒，且 3D 場景準備好）自動淡出，見 js/intro.js -->
+<div class="intro" id="intro">
+  <div class="ld2" id="ld2" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="載入中">
+    <div class="ld2-ico" aria-hidden="true">
+      <div class="ld2-hop"><img src="assets/intro/map-1-fold.svg" alt=""><img src="assets/intro/map-2-route.svg" alt=""><img src="assets/intro/map-3-pin.svg" alt=""><img src="assets/intro/map-4-flag.svg" alt=""></div>
+      <i class="ld2-shadow"></i>
+    </div>
+    <p class="ld2-t" aria-hidden="true">loading<span>.</span><span>.</span><span>.</span></p>
+  </div>
+</div>
+<script>document.documentElement.classList.add('intro-on')</script>
+
 <a class="skip-link" href="#zone-list">跳到展區清單</a>
 
 <!-- 頂部列：LOGO（回母網站地圖區塊）＋標題；右邊快捷按鈕 -->
@@ -86,6 +100,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 <script src="js/zones.js?v=20261123b"></script>
-<script src="js/park.js?v=20261123d"></script>
+<script src="js/intro.js?v=20261123a"></script>
+<script src="js/park.js?v=20261123e"></script>
 </body>
 </html>

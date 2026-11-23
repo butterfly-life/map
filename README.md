@@ -9,9 +9,11 @@ butterfly-map/
 ├─ index.html        頁面：頂部列／滿版 3D 地圖／展區清單／展區面板
 ├─ css/map.css       樣式（配色沿用蝶影浮生）
 ├─ js/zones.js       展區資料：名稱、說明、位置、顏色、分類、照片 ← 正式內容填這裡
+├─ js/intro.js       開場讀條（等 3D 場景準備好才淡出）
 ├─ js/park.js        3D 場景與互動（three.js r128，從 CDN 載入）
 └─ assets/
    ├─ logo.png       蝶影浮生 LOGO
+   ├─ intro/         開場讀條的四張圖示（目前是地圖風格佔位圖，同檔名覆蓋即可換成正式素材）
    ├─ models/        3D 模型（.glb）
    ├─ textures/      貼圖
    └─ images/        展區照片

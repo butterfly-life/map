@@ -155,3 +155,36 @@ dialog#panel::backdrop{background:rgba(23,46,40,.38)}
   .foot a{margin-left:0}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ════════════════════════════════════════════════════════════════════
+   2026-11-23 開場讀條（參考母網站 home 的開場）：純色藍綠底；中間的地圖小圖示（摺疊地圖 → 路線 → 定位 → 抵達）
+   一格一格切換（抽幀），同時一跳一跳（steps，刻意不平滑，像手翻書）；下方 loading... 三個點依序出現
+   圖示檔在 assets/intro/，之後換成自己的素材即可
+   ════════════════════════════════════════════════════════════════════ */
+html.intro-on,html.intro-on body{overflow:hidden}
+.intro{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;background:#2DB8A2;transition:opacity .7s ease,visibility .7s}
+.intro.out{opacity:0;visibility:hidden;pointer-events:none}
+.ld2{display:flex;flex-direction:column;align-items:center;gap:22px;transition:opacity .4s ease,transform .4s ease}
+.ld2.done{opacity:0;transform:scale(.92)}
+.ld2-ico{position:relative;width:clamp(96px,11vw,132px);aspect-ratio:1}
+.ld2-hop{position:absolute;inset:0;animation:ld2Hop .4s steps(4) infinite}
+/* 四張圖共用同一條 1.6 秒時間軸，各自只在自己那 1/4 顯示 → 任何時刻只會出現一張 */
+.ld2-hop img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;animation:1.6s steps(1,end) infinite}
+.ld2-hop img:nth-child(1){animation-name:ld2F1}
+.ld2-hop img:nth-child(2){animation-name:ld2F2}
+.ld2-hop img:nth-child(3){animation-name:ld2F3}
+.ld2-hop img:nth-child(4){animation-name:ld2F4}
+@keyframes ld2F1{0%{opacity:1}25%,100%{opacity:0}}
+@keyframes ld2F2{0%{opacity:0}25%{opacity:1}50%,100%{opacity:0}}
+@keyframes ld2F3{0%{opacity:0}50%{opacity:1}75%,100%{opacity:0}}
+@keyframes ld2F4{0%{opacity:0}75%,100%{opacity:1}}
+/* 跳：落地壓扁 → 跳起拉長 → 落地；每換一格跳一次 */
+@keyframes ld2Hop{0%{translate:0 0;scale:1.04 .95}35%{translate:0 -10px;scale:.98 1.03}70%{translate:0 -5px;scale:1 1}100%{translate:0 0;scale:1.04 .95}}
+.ld2-shadow{position:absolute;left:50%;bottom:-10px;width:60%;height:10px;margin-left:-30%;border-radius:50%;background:rgba(8,60,48,.22);animation:ld2Shadow .4s steps(4) infinite}
+@keyframes ld2Shadow{0%,100%{scale:1 1}35%{scale:.85 .9}}
+.ld2-t{margin:0;font:700 15px/1 'Noto Sans TC',system-ui,sans-serif;letter-spacing:.12em;color:#0A2F28}
+.ld2-t span{opacity:0;animation:ld2Dot 1.2s steps(1,end) infinite}
+.ld2-t span:nth-child(2){animation-delay:.3s}
+.ld2-t span:nth-child(3){animation-delay:.6s}
+@keyframes ld2Dot{0%{opacity:0}25%,85%{opacity:1}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.ld2-hop,.ld2-shadow,.ld2-hop img,.ld2-t span{animation:none}.ld2-hop img:nth-child(1),.ld2-t span{opacity:1}}
